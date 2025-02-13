@@ -1,0 +1,7 @@
+{
+  "name": "Lr1-5",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

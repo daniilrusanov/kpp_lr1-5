@@ -2,9 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import {
   IonHeader,
   IonToolbar,
-  IonTitle,
-  IonContent,
-  IonButtons,
+  IonTitle
 } from "@ionic/angular/standalone";
 
 @Component({
@@ -12,11 +10,14 @@ import {
   templateUrl: "./my-header.component.html",
   styleUrls: ["./my-header.component.scss"],
   standalone: true,
-  imports: [IonButtons, IonHeader, IonToolbar, IonTitle, IonContent],
+  imports: [IonHeader, IonToolbar, IonTitle],
 })
 
 export class MyHeaderComponent implements OnInit {
   @Input() name: string = 'Лабораторні роботи';
   constructor() {}
-  ngOnInit() {}
+
+  ngOnInit(): void {
+        throw new Error('Method not implemented.');
+    }
 }

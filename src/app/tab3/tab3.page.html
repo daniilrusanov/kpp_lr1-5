@@ -1,5 +1,45 @@
 <app-my-header name="Лабораторна робот №3"></app-my-header>
 
 <ion-content [fullscreen]="true">
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title>Завдання №3</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>
+        Згенерувати матрицю розміром NxN. Знайдіть кількість елементів,
+        що знаходяться на головній діагоналі і є простими.
+        <ion-item>
+          <ion-input
+            aria-label="Введіть кількість стовпців у матриці"
+            label-placement="stacked"
+            type="number"
+            id="a"
+            value="1"
+            #Inputa
+          />
+        </ion-item>
+        <ion-item>
+          <ion-input
+            aria-label="Введіть кількість рядків у матриці"
+            label-placement="stacked"
+            type="number"
+            id="b"
+            value="2"
+            #Inputb
+          />
+        </ion-item>
+        <ion-item>
+        </ion-item>
+        <ion-button
+          expand="block"
+          (click)="calculate(Inputa.value,Inputb.value)"
+        >Розрахунок</ion-button>
+        <ion-item>
+          <p>Результат обчислення {{d}}</p>
+        </ion-item>
+      </p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

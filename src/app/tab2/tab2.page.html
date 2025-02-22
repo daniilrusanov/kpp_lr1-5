@@ -1,5 +1,47 @@
 <app-my-header name="Лабораторна робот №2"></app-my-header>
 
 <ion-content [fullscreen]="true">
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title>Завдання №2</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>
+        На заданому проміжку чисел [a, b] знайдіть кількість чисел, які
+        кратні 11, якщо їх перші цифри парні. Потрібно вивести як самі
+        числа так і результати обрахунку.
+        <ion-item>
+          <ion-input
+            label="Проміжок [a"
+            label-placement="stacked"
+            type="number"
+            id="a"
+            value="1"
+            #Inputa
+          />
+        </ion-item>
+        <ion-item>
+          <ion-input
+            aria-label="Проміжок b]"
+            label-placement="stacked"
+            type="number"
+            id="b"
+            value="2"
+            #Inputb
+          />
+        </ion-item>
+        <ion-item>
+        </ion-item>
+        <ion-button
+          expand="block"
+          (click)="calculate(Inputa.value,Inputb.value)"
+        >Розрахунок
+        </ion-button>
+        <ion-item>
+          <p>Результат обчислення {{d}}</p>
+        </ion-item>
+      </p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

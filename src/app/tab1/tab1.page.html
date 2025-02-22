@@ -1,17 +1,52 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-my-header name="Лабораторна робот №1"></app-my-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title>Завдання №1</ion-card-title>
+    </ion-card-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <ion-card-content>
+      <p>
+        Зміст завдання
+        <ion-item>
+          <ion-input
+            Label="Перше число"
+            labelPlacement="stacked"
+            type="number"
+            id="a"
+            value="1"
+            #Inputa
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            Label="Друге число"
+            labelPlacement="stacked"
+            type="number"
+            id="b"
+            value="2"
+            #Inputb
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            Label="Третє число"
+            labelPlacement="stacked"
+            type="number"
+            id="c"
+            value=3"
+            #Inputc
+          ></ion-input>
+        </ion-item>
+        <ion-button
+          expand="block"
+          (click)="calculate(Inputa.value,Inputb.value,Inputc.value)"
+        >Розрахунок</ion-button>
+        <ion-item>
+          <p>Результат обчислення {{d}</p>
+        </ion-item>
+      </p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

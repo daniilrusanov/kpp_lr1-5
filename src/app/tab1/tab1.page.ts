@@ -15,6 +15,7 @@ export class Tab1Page {
   d: number = 0;
 
   calculate(a1: any, b1: any, c1: any) {
+    this.d = 0;
     try {
       let a = parseFloat(a1);
       let b = parseFloat(b1);

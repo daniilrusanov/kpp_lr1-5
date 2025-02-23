@@ -10,9 +10,10 @@
       <p>
         Згенерувати матрицю розміром NxN. Знайдіть кількість елементів,
         що знаходяться на головній діагоналі і є простими.
+      </p>
         <ion-item>
           <ion-input
-            aria-label="Введіть кількість стовпців у матриці"
+            aria-label="Введіть розмір матриці"
             label-placement="stacked"
             type="number"
             id="a"
@@ -20,26 +21,26 @@
             #Inputa
           />
         </ion-item>
-        <ion-item>
-          <ion-input
-            aria-label="Введіть кількість рядків у матриці"
-            label-placement="stacked"
-            type="number"
-            id="b"
-            value="2"
-            #Inputb
-          />
-        </ion-item>
-        <ion-item>
-        </ion-item>
         <ion-button
           expand="block"
-          (click)="calculate(Inputa.value,Inputb.value)"
-        >Розрахунок</ion-button>
+          (click)="calculate(Inputa.value)"
+        >Розрахунок
+        </ion-button>
         <ion-item>
-          <p>Результат обчислення {{d}}</p>
+          <p>Кількість простих чисел на головній діагоналі: {{ d }}</p>
         </ion-item>
-      </p>
+        <ion-item>
+          <p><strong>Згенерована матриця:</strong></p>
+        </ion-item>
+
+      <div class="matrix-container" [style.gridTemplateColumns]="'repeat(' + matrix.length + ', 1fr)'">
+        <div *ngFor="let row of matrix" class="matrix-row">
+          <div *ngFor="let cell of row" class="matrix-cell">
+            {{ cell }}
+          </div>
+        </div>
+      </div>
+
     </ion-card-content>
   </ion-card>
 </ion-content>

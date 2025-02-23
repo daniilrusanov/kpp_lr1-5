@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {
   IonHeader,
   IonToolbar,
@@ -13,11 +13,7 @@ import {
   imports: [IonHeader, IonToolbar, IonTitle],
 })
 
-export class MyHeaderComponent implements OnInit {
+export class MyHeaderComponent  {
   @Input() name: string = 'Лабораторні роботи';
   constructor() {}
-
-  ngOnInit(): void {
-        throw new Error('Method not implemented.');
-    }
 }

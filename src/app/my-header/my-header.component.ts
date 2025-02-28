@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import {
   IonHeader,
   IonToolbar,
-  IonTitle
+  IonTitle, IonButtons, IonMenuButton
 } from "@ionic/angular/standalone";
 
 @Component({
@@ -10,7 +10,7 @@ import {
   templateUrl: "./my-header.component.html",
   styleUrls: ["./my-header.component.scss"],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle],
+  imports: [IonHeader, IonToolbar, IonTitle, IonButtons, IonMenuButton],
 })
 
 export class MyHeaderComponent  {

@@ -1,0 +1,54 @@
+<app-my-header name="Лабораторна робота №2"></app-my-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-header>
+        <ion-title>Чарівні студенти, що навчаються на CS</ion-title>
+      </ion-card-header>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-card *ngFor="let student of students.students.filter(isCsStudent); index as i">
+          <ion-card-header>
+            <ion-card-title>{{student.name}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-label>Середній бал {{student.averageGrade}}</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>Розмір стипендії {{student.scholarship}}</ion-label>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-header>
+        <ion-title>Чарівні студенти, що навчаються на DA</ion-title>
+      </ion-card-header>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-card *ngFor="let student of students.students.filter(isDaStudent); index as i">
+          <ion-card-header>
+            <ion-card-title>{{student.name}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-label>Середній бал {{student.averageGrade}}</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>Розмір стипендії {{student.scholarship}}</ion-label>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <canvas #lineCanvas></canvas>
+</ion-content>

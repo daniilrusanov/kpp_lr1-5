@@ -1,4 +1,4 @@
-export type EquipmentName = 'Гантеля' | 'Штанга';
+export type EquipmentName = 'Гантеля' | 'Штанга' | 'Тенісна ракетка';
 
 export type EquipmentNameMap = {
   [key: string]: EquipmentName;
@@ -6,5 +6,6 @@ export type EquipmentNameMap = {
 
 export const EquipmentsNameMap: EquipmentNameMap = {
   Dumbbell: 'Гантеля',
-  Barbell: 'Штанга'
+  Barbell: 'Штанга',
+  TennisRacket: 'Тенісна ракетка'
 }

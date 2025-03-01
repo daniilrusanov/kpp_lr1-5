@@ -17,6 +17,8 @@ export abstract class SportsEquipment {
     return this.weight;
   }
 
+  abstract calculateUsageTime(hoursOfUse: number): number;
+
   displayInfo() {
     return (
       'Назва = ' + this.name + ' ' +

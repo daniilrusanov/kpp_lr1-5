@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MyHeaderComponent } from '../my-header/my-header.component';
+import { MyHeaderComponent } from '../../my-header/my-header.component';
 
 @Component({
   selector: 'app-tab2',

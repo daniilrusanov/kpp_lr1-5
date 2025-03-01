@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+
+ion-card {
+  --background: grey;
+  --color: #9efff0;
+  font-family: 'Neucha', cursive;
+  animation: animater 5s linear infinite;
+  text-shadow: 0 0 50px #0072ff, 0 0 100px #0072ff, 0 0 150px #0072ff, 0 0 200px #0072ff;
+}
+@keyframes animate {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+ion-card-title {
+  --color: #52ffe4;
+}
+ion-card-subtitle {
+  --color: #d1fff8;
+}

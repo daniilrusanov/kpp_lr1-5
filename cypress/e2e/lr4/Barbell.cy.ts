@@ -1,6 +1,6 @@
-import { TennisRacket } from "../../src/app/abstract-class/abstract/TennisRacket";
-import { EquipmentFactory } from "../../src/app/abstract-class/abstract/EquipmentFactory";
-import {Barbell} from "../../src/app/abstract-class/abstract/Barbell";
+import { TennisRacket } from "../../../src/app/abstract-class/abstract/TennisRacket";
+import { EquipmentFactory } from "../../../src/app/abstract-class/abstract/EquipmentFactory";
+import {Barbell} from "../../../src/app/abstract-class/abstract/Barbell";
 
 const createBarbell = (name: any, weight: any, material: any, length: any) => {
   return new TennisRacket(name, weight, material, length);

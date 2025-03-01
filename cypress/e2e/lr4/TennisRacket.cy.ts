@@ -1,5 +1,5 @@
-import { TennisRacket } from "../../src/app/abstract-class/abstract/TennisRacket";
-import { EquipmentFactory } from "../../src/app/abstract-class/abstract/EquipmentFactory";
+import { TennisRacket } from "../../../src/app/abstract-class/abstract/TennisRacket";
+import { EquipmentFactory } from "../../../src/app/abstract-class/abstract/EquipmentFactory";
 
 const createRacket = (name: any, weight: any, material: any, gripSize: any) => {
   return new TennisRacket(name, weight, material, gripSize);

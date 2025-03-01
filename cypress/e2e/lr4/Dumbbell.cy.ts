@@ -1,5 +1,5 @@
-import { EquipmentFactory } from "../../src/app/abstract-class/abstract/EquipmentFactory";
-import {Dumbbell} from "../../src/app/abstract-class/abstract/Dumbbell";
+import { EquipmentFactory } from "../../../src/app/abstract-class/abstract/EquipmentFactory";
+import {Dumbbell} from "../../../src/app/abstract-class/abstract/Dumbbell";
 
 const createDumbbell = (name: any, weight: any, material: any, isAdjustable: any) => {
   return new Dumbbell(name, weight, material, isAdjustable);

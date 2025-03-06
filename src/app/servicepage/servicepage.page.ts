@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
 import {
   IonButton,
   IonCard,
@@ -18,6 +19,7 @@ import { TabService } from "./logger/tab/tab.service";
 import { SeriesService } from "./logger/series/series.service";
 import { RecursionService } from './logger/recursion/recursion.service';
 import { LogService } from "./logger/log/log.service";
+import {Chart, registerables} from "chart.js";
 
 @Component({
   selector: 'app-servicepage',
@@ -31,7 +33,11 @@ import { LogService } from "./logger/log/log.service";
   ]
 })
 
-export class ServicepagePage  {
+export class ServicepagePage implements AfterViewInit {
+  @ViewChild('lineCanvas') private lineCanvas!: ElementRef;
+  lineChart: any;
+
+  obj: any;
   xx: any[];
   yyTab: any[];
   xySeries: Map<any, any>;
@@ -54,6 +60,8 @@ export class ServicepagePage  {
     this.yySer = [];
     this.yyRec = [];
     this.xyInput = [];
+
+    Chart.register(...registerables);
   }
 
 
@@ -66,9 +74,9 @@ export class ServicepagePage  {
     this.yyTab = [];
 
     console.log('Табулювання');
-    let obj = this.tabService.getTab(xn1, xk1, h1);
-    this.xx = obj.x;
-    this.yyTab = obj.y;
+    this.obj = this.tabService.getTab(xn1, xk1, h1);
+    this.xx = this.obj.x;
+    this.yyTab = this.obj.y;
 
     console.log('Ряд');
     this.xySeries = this.seriesService.getTab(xn1, xk1, h1);
@@ -77,6 +85,7 @@ export class ServicepagePage  {
     this.xyRecursion = this.recursionService.getTab(xn1, xk1, h1);
 
     this.input();
+    this.lineChartMethod();
   }
 
   input() {
@@ -100,6 +109,86 @@ export class ServicepagePage  {
 
       console.log(s);
       this.xyInput.push(s);
+    });
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      if (this.xx.length > 0) {
+        this.lineChartMethod();
+      }
+    }, 100);
+  }
+
+  lineChartMethod(): void {
+    if (this.lineChart) {
+      this.lineChart.destroy();
+    }
+
+    console.log("Drawing chart with data:", {
+      xx: this.xx,
+      yyTab: this.yyTab,
+      yySer: this.yySer,
+      yyRec: this.yyRec
+    });
+
+    if (this.lineChart) {
+      this.lineChart.destroy();
+    }
+
+    if (!this.lineCanvas) {
+      console.error("Canvas element not found!");
+      return;
+    }
+
+    this.lineChart = new Chart(this.lineCanvas.nativeElement, {
+      type: 'line',
+      data: {
+        labels: this.xx,
+        datasets: [
+          {
+            label: 'Табулювання',
+            fill: false,
+            borderColor: 'rgba(75,192,192,1)',
+            borderWidth: 2,
+            data: this.obj.y,
+            tension: 0.1
+          },
+          {
+            label: 'Ряд',
+            fill: false,
+            borderColor: 'rgba(255,99,132,1)',
+            borderWidth: 2,
+            data: this.yySer,
+            tension: 0.1
+          },
+          {
+            label: 'Рекурсія',
+            fill: false,
+            borderColor: 'rgba(54,162,235,1)',
+            borderWidth: 2,
+            data: this.yyRec,
+            tension: 0.1
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'X'
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Y'
+            }
+          }
+        }
+      }
     });
   }
 }
